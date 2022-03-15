@@ -1,0 +1,20 @@
+{
+  "name": "chatbot-discord",
+  "version": "1.0.0",
+  "description": "Check Out Our Public Bot :- https://dsc.gg/chatari",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeWhiteWeb/Chatbot-discord-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodeWhiteWeb/Chatbot-discord-js/issues"
+  },
+  "homepage": "https://github.com/CodeWhiteWeb/Chatbot-discord-js#readme"
+}
