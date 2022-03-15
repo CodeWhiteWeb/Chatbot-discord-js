@@ -24,7 +24,7 @@ return message.channel.send(`**:x: Please dont mention anyone**`);
  }
   message.channel.startTyping();
 if (!message.content) return message.channel.send("Please say something.");
-fetch(`http://api.brainshop.ai/get?bid=164757&key=ajEOfoBjQ7pjKAVM&uid=1&msg=${encodeURIComponent(message.content)}`)
+fetch(`http://api.brainshop.ai/get?bid=${bid}&key=${key}&uid=1&msg=${encodeURIComponent(message.content)}`)
     .then(res => res.json())
     .then(data => {
         message.channel.send(`> ${message.content} \n <@${message.author.id}> ${data.cnt}`);
