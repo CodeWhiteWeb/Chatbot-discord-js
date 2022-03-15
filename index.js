@@ -14,22 +14,24 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`);
   client.user.setActivity(`Created By CodeWhiteWeb`);
 });
-
 client.on("message", async message => {
-if (message.channel.id == process.env.channel) {
+if (message.channel.name == process.env.channel) {
 if (message.author.bot) return;
+message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
+if (message.content.includes(`@`)) {
+return message.channel.send(`**:x: Please dont mention anyone**`);
  }
   message.channel.startTyping();
 if (!message.content) return message.channel.send("Please say something.");
-fetch(`http://api.brainshop.ai/get?bid=164757&key=ajEOfoBjQ7pjKAVM&uid=1&msg=${encodeURIComponent(message.content)}`)
+    let msg = message.content
+fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${msg}`)
     .then(res => res.json())
     .then(data => {
         message.channel.send(`> ${message.content} \n <@${message.author.id}> ${data.message}`);
     });
       message.channel.stopTyping();
 }
-})
+});
 
-client.login(process.env.token); // login
 /* It will help me a lot if u give credits to Me(owner)*/
 /* better version :- https://dsc.gg/chatari */
