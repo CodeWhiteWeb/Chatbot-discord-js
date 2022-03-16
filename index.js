@@ -8,6 +8,7 @@ app.get('/', (req, res) => res.send('Created By CodeWhiteWeb'))
 app.listen(port, () =>
     console.log(`Your app is listening to http://localhost:${port}`)
 )
+
 const client = new Discord.Client();
 client.login(process.env.token);
 client.on("ready", () => {
@@ -18,13 +19,15 @@ client.on("ready", () => {
 client.on("message", async message => {
 if (message.channel.name == "chatbot") {
 if (message.author.bot) return;
+let uid = message.author.id
+let msg = message.content
 message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
 if (message.content.includes(`@`)) {
 return message.channel.send(`**:x: Please dont mention anyone**`);
  }
   message.channel.startTyping();
 if (!message.content) return message.channel.send("Please say something.");
-fetch(`http://api.brainshop.ai/get?bid=${bid}&key=${key}&uid=1&msg=${encodeURIComponent(message.content)}`)
+fetch(`http://api.brainshop.ai/get?bid=${bid}&key=${key}&uid=${uid}&msg=${msg}`)
     .then(res => res.json())
     .then(data => {
         message.channel.send(`> ${message.content} \n <@${message.author.id}> ${data.cnt}`);
