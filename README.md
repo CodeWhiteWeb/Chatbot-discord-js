@@ -3,7 +3,7 @@
 >also check out our public chatbot bot :- https://dsc.gg/chatari
 
 
-[![Run on Repl.it](https://repl.it/badge/github/CodeWhiteWeb/Chatbot-discord-js)](https://repl.it/github.com/CodeWhiteWeb/Chatbot-discord-js)
+[![Run on Repl.it](https://repl.it/badge/github/CodeWhiteWeb/Chatbot-discord-js)](https://repl.it/github/CodeWhiteWeb/Chatbot-discord-js)
 
 ## Install
 
